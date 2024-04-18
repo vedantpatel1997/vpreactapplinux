@@ -42,9 +42,7 @@ jobs:
     environment:
       name: 'QA'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write #This is required for requesting the JWT
-
+    
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
@@ -54,13 +52,6 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
       
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_57CDF1BEA66E47659D106A3C278BE5EC }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_48FB28D89F5C4546A3EB54BFA8F18C0F }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E64C74A1B05B40ADAAAC1B63A9DD4D9A }}
-
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -68,4 +59,4 @@ jobs:
           app-name: 'vpreactrglinux'
           slot-name: 'QA'
           package: .
-          
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AE52B4C688854F3989A0A0A08C3EE284 }}
