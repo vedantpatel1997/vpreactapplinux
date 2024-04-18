@@ -1,0 +1,5 @@
+{
+  "appService.zipIgnorePattern": ["node_modules{,/**}", ".vscode{,/**}"],
+  "appService.defaultWebAppToDeploy": "/subscriptions/f72dc808-adb3-45e6-a4df-03437097bd04/resourceGroups/VPReactLinuxRG/providers/Microsoft.Web/sites/VPReactRGLinux",
+  "appService.deploySubpath": "."
+}
