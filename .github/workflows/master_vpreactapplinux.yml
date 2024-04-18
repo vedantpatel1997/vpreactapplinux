@@ -59,4 +59,4 @@ jobs:
           app-name: 'VPReactAppLinux'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0D9EC865014F4EB5A25F86C6E374DFFA }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F01AB3A5488B4789A5C50FAEEBAE9A9D }}
